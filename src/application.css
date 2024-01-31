@@ -1,0 +1,15 @@
+#root {
+}
+
+textarea {
+  resize: vertical;
+}
+
+.card {
+  padding: 2em;
+}
+
+div.section {
+  display: flex;
+  flex-direction: column;
+}
