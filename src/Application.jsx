@@ -1,6 +1,6 @@
 import GeneralInfo from "./components/GeneralInfo";
 import "./application.css";
-import Education from "./components/education/Education";
+import Education from "./components/Education";
 import Experience from "./components/Experience";
 import { useState } from "react";
 import Submit from "./components/Submit";
