@@ -109,15 +109,19 @@ function Application() {
         />
       </div>
 
-      <Experience
-        workInfo={workInfo}
-        handleCompanyName={handleCompanyNameChange}
-        handlePosition={handlePositionChange}
-        handleResponsibilities={handleResponsibiltiesChange}
-        handleStartDate={handleStartDateChange}
-        handleEndDate={handleEndDateChange}
-        editable={submissionStep === 0}
-      />
+      <div className="section">
+        <h2>Experience</h2>
+        <Experience
+          workInfo={workInfo}
+          handleCompanyName={handleCompanyNameChange}
+          handlePosition={handlePositionChange}
+          handleResponsibilities={handleResponsibiltiesChange}
+          handleStartDate={handleStartDateChange}
+          handleEndDate={handleEndDateChange}
+          editable={submissionStep === 0}
+        />
+      </div>
+
       <Submit
         step={submissionStep}
         advance={advanceSubmissionProcess}
