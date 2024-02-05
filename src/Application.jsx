@@ -87,48 +87,59 @@ function Application() {
     setSubmissionStep(submissionStep - 1);
   };
 
-  return (
-    <>
-      <h1>CV Time</h1>
-      <GeneralInfo
-        personInfo={personInfo}
-        handleFirstName={handleFirstNameChange}
-        handleLastName={handleLastNameChange}
-        handleEmail={handleEmailChange}
-        handlePhone={handlePhoneNumberChange}
-        editable={submissionStep === 0}
-      />
-      <div className="section">
-        <h2>Education</h2>
-        <Education
-          schoolInfo={schoolInfo}
-          handleSchoolName={handleSchoolNameChange}
-          handleStudyTitle={handleStudyTitleChange}
-          handleGraduationYear={handleGraduationYearChange}
-          editable={submissionStep === 0}
-        />
-      </div>
+  if (submissionStep === 2) {
+    return (
+      <>
+        <h2>Thank you for applying!</h2>
+      </>
+    );
+  } else {
+    return (
+      <>
+        <h1>Arbor Application</h1>
+        <div className="section">
+          <h2>General</h2>
+          <GeneralInfo
+            personInfo={personInfo}
+            handleFirstName={handleFirstNameChange}
+            handleLastName={handleLastNameChange}
+            handleEmail={handleEmailChange}
+            handlePhone={handlePhoneNumberChange}
+            editable={submissionStep === 0}
+          />
+        </div>
+        <div className="section">
+          <h2>Education</h2>
+          <Education
+            schoolInfo={schoolInfo}
+            handleSchoolName={handleSchoolNameChange}
+            handleStudyTitle={handleStudyTitleChange}
+            handleGraduationYear={handleGraduationYearChange}
+            editable={submissionStep === 0}
+          />
+        </div>
 
-      <div className="section">
-        <h2>Experience</h2>
-        <Experience
-          workInfo={workInfo}
-          handleCompanyName={handleCompanyNameChange}
-          handlePosition={handlePositionChange}
-          handleResponsibilities={handleResponsibiltiesChange}
-          handleStartDate={handleStartDateChange}
-          handleEndDate={handleEndDateChange}
-          editable={submissionStep === 0}
-        />
-      </div>
+        <div className="section">
+          <h2>Experience</h2>
+          <Experience
+            workInfo={workInfo}
+            handleCompanyName={handleCompanyNameChange}
+            handlePosition={handlePositionChange}
+            handleResponsibilities={handleResponsibiltiesChange}
+            handleStartDate={handleStartDateChange}
+            handleEndDate={handleEndDateChange}
+            editable={submissionStep === 0}
+          />
+        </div>
 
-      <Submit
-        step={submissionStep}
-        advance={advanceSubmissionProcess}
-        backTrack={backTrackSubmissionProcess}
-      />
-    </>
-  );
+        <Submit
+          step={submissionStep}
+          advance={advanceSubmissionProcess}
+          backTrack={backTrackSubmissionProcess}
+        />
+      </>
+    );
+  }
 }
 
 export default Application;
