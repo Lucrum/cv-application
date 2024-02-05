@@ -7,15 +7,7 @@ function Education({
   handleGraduationYear,
   editable,
 }) {
-  if (!editable) {
-    return (
-      <>
-        <p>School: {schoolInfo.name}</p>
-        <p>Major: {schoolInfo.studyTitle}</p>
-        <p>Graduation Year: {schoolInfo.graduationYear}</p>
-      </>
-    );
-  } else {
+  if (editable) {
     return (
       <>
         <TextInputField
@@ -36,6 +28,14 @@ function Education({
           value={schoolInfo.graduationYear}
           handleTextChange={handleGraduationYear}
         />
+      </>
+    );
+  } else {
+    return (
+      <>
+        <p>School: {schoolInfo.name}</p>
+        <p>Major: {schoolInfo.studyTitle}</p>
+        <p>Graduation Year: {schoolInfo.graduationYear}</p>
       </>
     );
   }
