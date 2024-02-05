@@ -1,8 +1,9 @@
 import GeneralInfo from "./components/GeneralInfo";
 import "./application.css";
-import Education from "./components/Education";
+import Education from "./components/education/Education";
 import Experience from "./components/Experience";
 import { useState } from "react";
+import Submit from "./components/Submit";
 
 function Application() {
   const [personInfo, setPersonInfo] = useState({
@@ -15,7 +16,7 @@ function Application() {
   const [schoolInfo, setSchoolInfo] = useState({
     name: "",
     studyTitle: "",
-    graduationYear: new Date().getFullYear(),
+    graduationYear: "",
   });
 
   const [workInfo, setWorkInfo] = useState({
@@ -25,6 +26,8 @@ function Application() {
     startDate: "",
     endDate: "",
   });
+
+  const [submissionStep, setSubmissionStep] = useState(0);
 
   const handleFirstNameChange = (e) => {
     setPersonInfo({ ...personInfo, firstName: e.target.value });
@@ -76,6 +79,14 @@ function Application() {
     }
   };
 
+  const advanceSubmissionProcess = () => {
+    setSubmissionStep(submissionStep + 1);
+  };
+
+  const backTrackSubmissionProcess = () => {
+    setSubmissionStep(submissionStep - 1);
+  };
+
   return (
     <>
       <h1>CV Time</h1>
@@ -85,13 +96,19 @@ function Application() {
         handleLastName={handleLastNameChange}
         handleEmail={handleEmailChange}
         handlePhone={handlePhoneNumberChange}
+        editable={submissionStep === 0}
       />
-      <Education
-        schoolInfo={schoolInfo}
-        handleSchoolName={handleSchoolNameChange}
-        handleStudyTitle={handleStudyTitleChange}
-        handleGraduationYear={handleGraduationYearChange}
-      />
+      <div className="section">
+        <h2>Education</h2>
+        <Education
+          schoolInfo={schoolInfo}
+          handleSchoolName={handleSchoolNameChange}
+          handleStudyTitle={handleStudyTitleChange}
+          handleGraduationYear={handleGraduationYearChange}
+          editable={submissionStep === 0}
+        />
+      </div>
+
       <Experience
         workInfo={workInfo}
         handleCompanyName={handleCompanyNameChange}
@@ -99,6 +116,12 @@ function Application() {
         handleResponsibilities={handleResponsibiltiesChange}
         handleStartDate={handleStartDateChange}
         handleEndDate={handleEndDateChange}
+        editable={submissionStep === 0}
+      />
+      <Submit
+        step={submissionStep}
+        advance={advanceSubmissionProcess}
+        backTrack={backTrackSubmissionProcess}
       />
     </>
   );
