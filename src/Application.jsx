@@ -65,7 +65,7 @@ function Application() {
     setWorkInfo({ ...workInfo, position: e.target.value });
   };
 
-  const handleResponsibiltiesChange = (e) => {
+  const handleResponsibilitiesChange = (e) => {
     setWorkInfo({ ...workInfo, responsibilities: e.target.value });
   };
 
@@ -125,7 +125,7 @@ function Application() {
             workInfo={workInfo}
             handleCompanyName={handleCompanyNameChange}
             handlePosition={handlePositionChange}
-            handleResponsibilities={handleResponsibiltiesChange}
+            handleResponsibilities={handleResponsibilitiesChange}
             handleStartDate={handleStartDateChange}
             handleEndDate={handleEndDateChange}
             editable={submissionStep === 0}

@@ -4,7 +4,7 @@ function Experience({
   workInfo,
   handleCompanyName,
   handlePosition,
-  handleResponsibilties,
+  handleResponsibilities,
   handleStartDate,
   handleEndDate,
   editable,
@@ -27,7 +27,8 @@ function Experience({
         />
         <label htmlFor="responsibilities">Responsibilities: </label>
         <textarea
-          onChange={handleResponsibilties}
+          value={workInfo.responsibilities}
+          onChange={handleResponsibilities}
           id="responsibilities"
         ></textarea>
         <label htmlFor="start-date">Start Date: </label>
