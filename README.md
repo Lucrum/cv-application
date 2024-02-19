@@ -4,6 +4,6 @@ This project is from The Odin Project's React [curriculum](https://www.theodinpr
 
 A basic CV application made with Vite + React!
 
-# usage
+# Usage
 
-To run, clone this repo and run `npm run dev` in the folder directory. Then, visit `localhost:5173` in your browser.
+To run, clone this repo and run `npm install` to install required dependencies, then `npm run dev` in the folder directory. Then, visit `localhost:5173` in your browser.
